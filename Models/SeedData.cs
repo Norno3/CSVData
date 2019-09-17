@@ -18,7 +18,7 @@ namespace CSVData.Models
                 // Look for any cars
                 if (context.Car.Any())
                 {
-                    //return;   // DB has been seeded
+                    return;   // DB has been seeded
                 }
 
                 IList<Car> cars = new List<Car>();

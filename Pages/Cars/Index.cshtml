@@ -2,17 +2,17 @@
 @model CSVData.Pages.Cars.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Car Index";
 }
 
-<h1>Index</h1>
+<h1>Car Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].ID)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Car[0].Make)
             </th>
@@ -35,6 +35,9 @@
 @foreach (var item in Model.Car) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Make)
             </td>
             <td>
@@ -48,11 +51,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SellDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }
